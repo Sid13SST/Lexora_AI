@@ -12,6 +12,10 @@ export async function POST(req: Request) {
   try {
     const { messages, documentId } = await req.json();
     
+    // Ensure collection exists
+    const { initQdrant } = await import('@/lib/rag/qdrant');
+    await initQdrant();
+    
     if (!messages || messages.length === 0) {
       return NextResponse.json({ error: 'Messages are required' }, { status: 400 });
     }
@@ -37,11 +41,17 @@ export async function POST(req: Request) {
       };
     }
 
-    const searchResults = await qdrantClient.search(COLLECTION_NAME, {
-      vector: queryVector,
-      limit: 5, // Top K retrieval
-      filter: filter,
-    });
+    let searchResults = [];
+    try {
+      searchResults = await qdrantClient.search(COLLECTION_NAME, {
+        vector: queryVector,
+        limit: 5,
+        filter: filter,
+      });
+    } catch (searchError: any) {
+      console.warn(">>> [CHAT] Search failed (possibly empty collection):", searchError.message);
+      searchResults = [];
+    }
 
     // 3. Construct Context
     let contextText = '';
