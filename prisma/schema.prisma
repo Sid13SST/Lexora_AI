@@ -1,0 +1,53 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String      @id @default(uuid())
+  email     String      @unique
+  name      String?
+  documents Document[]
+  chats     Chat[]
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+}
+
+model Document {
+  id          String   @id @default(uuid())
+  title       String
+  filename    String
+  mimeType    String
+  content     String   // Extracted text content
+  userId      String?
+  user        User?    @relation(fields: [userId], references: [id])
+  chats       Chat[]   // Chats that reference this document
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Chat {
+  id          String     @id @default(uuid())
+  title       String     @default("New Chat")
+  userId      String?
+  user        User?      @relation(fields: [userId], references: [id])
+  documentId  String?
+  document    Document?  @relation(fields: [documentId], references: [id])
+  messages    Message[]
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+}
+
+model Message {
+  id        String   @id @default(uuid())
+  chatId    String
+  chat      Chat     @relation(fields: [chatId], references: [id], onDelete: Cascade)
+  role      String   // 'user' or 'assistant'
+  content   String
+  citations Json?    // Array of citations with page numbers and text snippets
+  createdAt DateTime @default(now())
+}
