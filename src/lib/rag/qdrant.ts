@@ -22,7 +22,15 @@ export async function initQdrant() {
           distance: "Cosine",
         },
       });
-      console.log(`Created Qdrant collection: ${COLLECTION_NAME}`);
+      
+      // Create index for documentId filtering (Required by Qdrant Cloud)
+      await qdrantClient.createPayloadIndex(COLLECTION_NAME, {
+        field_name: "documentId",
+        field_schema: "keyword",
+        wait: true
+      });
+      
+      console.log(`Created Qdrant collection and index: ${COLLECTION_NAME}`);
     }
   } catch (error) {
     console.error("Error initializing Qdrant:", error);

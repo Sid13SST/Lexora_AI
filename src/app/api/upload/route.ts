@@ -78,7 +78,6 @@ export async function POST(req: Request) {
     const points = [];
     for (const chunk of chunks) {
       const vector = await generateEmbedding(chunk.content);
-      console.log(`>>> [UPLOAD] Chunk vector length: ${vector.length}`);
       points.push({
         id: uuidv4(),
         vector: vector,
