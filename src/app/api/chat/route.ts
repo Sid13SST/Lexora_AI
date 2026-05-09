@@ -20,6 +20,7 @@ export async function POST(req: Request) {
 
     // 1. Generate Embedding for the query
     const queryVector = await generateEmbedding(latestMessage);
+    console.log(`>>> [CHAT] Query vector length: ${queryVector.length}`);
 
     // 2. Retrieve relevant chunks from Qdrant
     let filter = undefined;
