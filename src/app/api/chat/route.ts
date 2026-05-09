@@ -49,7 +49,12 @@ export async function POST(req: Request) {
         filter: filter,
       });
     } catch (searchError: any) {
-      console.warn(">>> [CHAT] Search failed (possibly empty collection):", searchError.message);
+      console.error(">>> [CHAT] SEARCH CRITICAL ERROR:", {
+        message: searchError.message,
+        status: searchError.status,
+        data: searchError.data ? JSON.stringify(searchError.data) : 'N/A',
+        url: searchError.url
+      });
       searchResults = [];
     }
 
