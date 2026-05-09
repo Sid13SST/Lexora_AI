@@ -41,7 +41,7 @@ export async function POST(req: Request) {
       };
     }
 
-    let searchResults = [];
+    let searchResults: any[] = [];
     try {
       searchResults = await qdrantClient.search(COLLECTION_NAME, {
         vector: queryVector,
