@@ -1,8 +1,25 @@
-# <img src="./public/assets/logo.png" width="48" align="center" /> Lexora AI
+<div align="center">
+
+<img src="./public/assets/logo.png" width="120" />
+
+# Lexora AI
 
 ### Turn Any Document Into an Intelligent Knowledge Base
 
-Lexora AI is a premium, enterprise-grade RAG (Retrieval-Augmented Generation) platform built for the modern web. It enables you to upload complex PDFs, instantly vectorize them, and engage in grounded, halluncination-free conversations with your data.
+[![Next.js](https://img.shields.io/badge/Next.js-15-black?style=for-the-badge&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0-38B2AC?style=for-the-badge&logo=tailwind-css)](https://tailwindcss.com/)
+[![Gemini AI](https://img.shields.io/badge/Google_Gemini-AI-orange?style=for-the-badge&logo=google-gemini)](https://deepmind.google/technologies/gemini/)
+[![Qdrant](https://img.shields.io/badge/Qdrant-Vector_DB-red?style=for-the-badge&logo=qdrant)](https://qdrant.tech/)
+[![Prisma](https://img.shields.io/badge/Prisma-ORM-2D3748?style=for-the-badge&logo=prisma)](https://www.prisma.io/)
+
+---
+
+Lexora AI is a premium, enterprise-grade RAG (Retrieval-Augmented Generation) platform built for the modern web. It enables you to upload complex PDFs, instantly vectorize them, and engage in grounded, hallucination-free conversations with your data.
+
+[Live Demo](#) • [Documentation](#) • [Report Bug](https://github.com/Sid13SST/Lexora_AI/issues)
+
+</div>
 
 ---
 
@@ -30,17 +47,6 @@ Lexora AI is a premium, enterprise-grade RAG (Retrieval-Augmented Generation) pl
 
 ---
 
-## 🛠️ Tech Stack
-
-- **Framework**: [Next.js 15](https://nextjs.org/) (App Router + Turbopack)
-- **AI Models**: [Google Gemini 1.5](https://deepmind.google/technologies/gemini/) (Embeddings) & GPT-4o-mini (Chat)
-- **Database**: [PostgreSQL](https://www.postgresql.org/) (via [Prisma ORM](https://www.prisma.io/))
-- **Vector Search**: [Qdrant](https://qdrant.tech/)
-- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
-- **Animations**: [Framer Motion](https://www.framer.com/motion/)
-
----
-
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -54,7 +60,7 @@ Lexora AI is a premium, enterprise-grade RAG (Retrieval-Augmented Generation) pl
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/your-username/Lexora_AI.git
+   git clone https://github.com/Sid13SST/Lexora_AI.git
    cd Lexora_AI
    ```
 
@@ -101,4 +107,8 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 ---
 
-Built with ❤️ by Siddhant Prasad
+<div align="center">
+
+Built with ❤️ by [Siddhant Prasad](https://github.com/Sid13SST)
+
+</div>
