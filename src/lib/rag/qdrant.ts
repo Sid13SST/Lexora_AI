@@ -4,6 +4,7 @@ const QDRANT_URL = process.env.QDRANT_URL || "http://localhost:6333";
 
 export const qdrantClient = new QdrantClient({
   url: QDRANT_URL,
+  apiKey: process.env.QDRANT_API_KEY,
 });
 
 export const COLLECTION_NAME = "lexora_documents";
